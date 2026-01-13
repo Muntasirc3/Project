@@ -162,5 +162,7 @@ public class Slots {
         System.out.println("Rolling Slot Machine!");
     }
 
-
+    public int checkBet(int bet) {
+        return (score/10) + 1;
+    }
 }
