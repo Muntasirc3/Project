@@ -1,13 +1,12 @@
 import java.util.Scanner;
 
 public class Casino {
-    private int cash;
-    private boolean first;
+    private double cash;
     private Scanner scan;
 
     public Casino() {
         cash = 1000;
-        first = true;
+        scan = new Scanner(System.in);
     }
 
     public void gamble(){
@@ -22,9 +21,14 @@ public class Casino {
         } else if (game.equals("2")) {
 
         }
+        System.out.println("Your Cash Ran Out!\nNow Get Out!");
     }
 
     public void slotRound(Slots slots){
+        double bet;
+        System.out.println("Enter bet amount");
+        bet = scan.nextInt();
+        cash -= bet;
         int[][] grid = slots.getGrid();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 5; j++) {
@@ -32,12 +36,16 @@ public class Casino {
             }
             System.out.println();
         }
-        int bet;
-        System.out.println("Enter bet amount");
-        bet = scan.nextInt();
 
+        System.out.println("The Score Is " + slots.getScore());
+        bet = slots.checkBet() * bet;
+        cash += bet;
+        System.out.println(slots.checkBet());
+        System.out.println("You Won " + bet);
+        System.out.println("Your Balance is " + cash);
+        slots.reroll();
     }
     public boolean poor() {
-        return cash <= 0;
+        return cash < 1;
     }
 }

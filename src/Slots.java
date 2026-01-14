@@ -158,11 +158,15 @@ public class Slots {
                 score+= grid[0][i] * 3;
             }
         }
-
         System.out.println("Rolling Slot Machine!");
     }
 
-    public int checkBet(int bet) {
-        return (score/10) + 1;
+    public double checkBet() {
+        if (score >= 100) {
+            return ((double) score /50) ;
+        } else {
+            return 0.0;
+        }
+
     }
 }
