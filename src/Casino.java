@@ -91,6 +91,7 @@ public class Casino {
             }
         }
         cash += bet;
+        System.out.println("Your Balance is $" + cash);
         HighLow.reroll();
     }
     public boolean Rich() {
