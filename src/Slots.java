@@ -169,7 +169,7 @@ public class Slots {
         } else if (score >= 100) {
             return ((double) score /100) ;
         } else if (score >= 50){
-            return  ((double) score /200);
+            return  ((double) score /100);
         } else {
             return 0;
         }
