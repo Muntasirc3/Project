@@ -162,13 +162,17 @@ public class Slots {
     }
 
     public double checkBet() {
-        return ((double) score / 100) ;
-
-       /* if (score >= 100) {
-            return ((double) score /99) ;
+        if (score >= 200) {
+            return 4;
+        } else if (score >= 130) {
+            return 2;
+        } else if (score >= 100) {
+            return ((double) score /100) ;
+        } else if (score >= 50){
+            return  ((double) score /200);
         } else {
-            return 0.0;
+            return 0;
         }
-        */
+
     }
 }

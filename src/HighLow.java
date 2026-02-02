@@ -11,8 +11,8 @@ public class HighLow {
     }
 
     public void reroll() {
-        dice1 = (int) (Math.random() * 5) + 1;
-        dice2 = (int) (Math.random() * 5) + 1;
+        dice1 = (int) (Math.random() * 6) + 1;
+        dice2 = (int) (Math.random() * 6) + 1;
     }
 
     public int getDice1() {

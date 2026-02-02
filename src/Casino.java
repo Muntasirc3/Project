@@ -28,10 +28,15 @@ public class Casino {
             }
 
         }
-        System.out.println("Your Cash Ran Out!\nNow Get Out!");
+        System.out.println("Your Cash Ran Out!\nNow You Must Get Out!");
     }
 
     public void slotRound(Slots slots){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         double bet;
         System.out.println("Enter bet amount");
         bet = scan.nextDouble();
@@ -49,34 +54,70 @@ public class Casino {
             }
 
         }
-
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("The Score Is " + slots.getScore());
         bet = slots.checkBet() * bet;
         cash += bet;
         if (cash < 0) {
             cash = 0;
         }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("You Won " + bet);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Your Balance is " + cash);
         slots.reroll();
+
     }
 
     public void HighlowRound(HighLow HighLow) {
         double bet;
         String side;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Enter High Or Low (in lowercase)");
         side = scan.nextLine();
         System.out.println("Enter bet amount");
         bet = scan.nextDouble();
+        scan.nextLine();
         cash -= bet;
         System.out.println("Rolling Dice!");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Dice 1: " + HighLow.getDice1());
         System.out.println("Dice 2: " + HighLow.getDice2());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Score: " + HighLow.getScore());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         if (HighLow.getScore() < 7) {
             if (side.equals("low")) {
-                bet *= 2;
                 System.out.println("You Won!");
+                bet *= 2;
             } else {
                 System.out.println("You Lost!");
                 bet = 0;
@@ -89,8 +130,18 @@ public class Casino {
                 System.out.println("You Lost!");
                 bet = 0;
             }
+        } else {
+            System.out.println("Draw!");
         }
         cash += bet;
+        if (cash < 0) {
+            cash = 0;
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Your Balance is $" + cash);
         HighLow.reroll();
     }
